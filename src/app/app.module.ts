@@ -11,7 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TodoEffects } from './app-state/effects/todo.effects';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { appreducer } from './app-state';
+import { appreducer, metaReducers } from './app-state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CartComponent } from './cart/cart.component';
 
@@ -28,7 +28,7 @@ import { CartComponent } from './cart/cart.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot(appreducer),
+    StoreModule.forRoot(appreducer,{metaReducers}),
     EffectsModule.forRoot([ TodoEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
